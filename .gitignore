@@ -4,5 +4,5 @@ playwright-report/
 cucumber-report.html
 blob-report/
 playwright/.cache/
-.env
+
 .DS_Store
