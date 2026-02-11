@@ -136,6 +136,7 @@ The framework runs with sensible defaults, but you can override them:
 | `BASE_URL` | `https://demo.playwright.dev/todomvc/` | Target Application URL |
 | `HEADLESS` | `false` | Run browser in headless mode (`true` for CI) |
 | `BROWSERS` | `chromium` | Target browser (`chromium`, `firefox`, `webkit`) |
+| `TRACE` | `true` | Capture full execution traces (snapshots, console logs, network) |
 
 ---
 
@@ -143,13 +144,9 @@ The framework runs with sensible defaults, but you can override them:
 
 - **Console**: Standard Cucumber formatter.
 - **HTML Report**: Generated at `cucumber-report.html`.
-- **Screenshots**: 
-  - Automatically attached to the HTML report on failure.
-  - Saved locally to `test-results/screenshots/` for CI artifact upload.
-
 ---
 
-## 🔄 CI/CD (GitHub Actions)
+### 🔄 CI/CD (GitHub Actions)
 
 The repository includes a simple GitHub Actions workflow (`.github/workflows/playwright.yml`) that:
 1. Installs dependencies and browsers.
@@ -157,7 +154,7 @@ The repository includes a simple GitHub Actions workflow (`.github/workflows/pla
 3. Uploads reports and screenshots as artifacts (always, even on failure).
 
 ### 🕵️ Playwright Tracing
-We have added the capability to capture full execution traces (snapshots, console logs, network) to facilitate deep debugging of complex failures. 
+I have added the capability to capture full execution traces (snapshots, console logs, network) to facilitate deep debugging of complex failures. 
 To enable this feature, you must set the environment variable `TRACE=true`, as it is disabled by default to optimize performance.
 
 
