@@ -1,0 +1,54 @@
+name: E2E Pipeline example
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright and browsers
+        run: npx playwright install --with-deps
+
+      # Quality Gate (example) 
+      # - name: SonarQube Scan
+      # etc..
+
+
+      - name: Run tests
+        env:
+          CI: "true"
+        run: npm run test
+
+      - name: Upload reports and artifacts (always)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-artifacts
+          retention-days: 7
+          path: |
+            cucumber-report.html
+            playwright-report/
+            test-results/screenshots/
+            **/*.zip

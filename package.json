@@ -1,0 +1,22 @@
+{
+  "name": "todomvc-playwright-cucumber",
+  "version": "1.0.0",
+  "description": "E2E tests for TodoMVC using Playwright and Cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.1",
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.4"
+  }
+}
