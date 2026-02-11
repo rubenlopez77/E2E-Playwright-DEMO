@@ -3,7 +3,8 @@
 [![E2E Pipeline example](https://github.com/rubenlopez77/E2E-Playwright-DEMO/actions/workflows/playwright.yml/badge.svg)](https://github.com/rubenlopez77/E2E-Playwright-DEMO/actions/workflows/playwright.yml)
 
 
-It demonstrates a robust, scalable, and maintainable architecture designed for high-performance parallel execution.
+It demonstrates a robust, scalable, and maintainable architecture for high-performance parallel execution.
+This solution uses Cucumber on top of Playwright. If needed, I can provide the same flow using the @playwright/test runner, reusing the same Pages/Components structure.
 
 ## ⚠️ Notes / Disclaimer
 
